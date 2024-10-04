@@ -20,15 +20,21 @@ if __name__ == "__main__":
     # print("Langchain API KEY")
     # print(os.environ["OPENAI_API_KEY"])
 
-    summary_template = """
-        Given the {information} about a person from I want you to create:
-        1. A Short summary
-        2. two interesting facts about them
+    # summary_template = """
+    #     Given the {information} about a person from I want you to create:
+    #     1. A Short summary
+    #     2. two interesting facts about them
+    # """
+
+    summary_template = """"
+    Write me a song about pizza
     """
+
 
     summary_prompt_template = PromptTemplate(input_variables=["infromation"], template=summary_template)
     # llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
     llm = ChatOllama(temperature=0, model="llama3.2")
+    # llm = ChatOllama(temperature=0, model="mistral")
 
     chain = summary_prompt_template | llm | StrOutputParser()
     res = chain.invoke(input={"information": information})
