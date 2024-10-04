@@ -6,6 +6,8 @@ from langchain_ollama import ChatOllama
 
 from langchain_core.output_parsers import StrOutputParser
 
+from third_parties.linkedin import scrape_linkedin_profile
+
 information = """
 Elon Reeve Musk FRS (/ˈiːlɒn/; born June 28, 1971) is a businessman and investor known for his key roles in the space company SpaceX and the automotive company Tesla, Inc. Other involvements include ownership of X Corp., the company that operates the social media platform X (formerly known as Twitter), and his role in the founding of The Boring Company, xAI, Neuralink, and OpenAI. He is one of the wealthiest individuals in the world; as of August 2024 Forbes estimates his net worth to be US$247 billion.[3]
 
@@ -20,15 +22,15 @@ if __name__ == "__main__":
     # print("Langchain API KEY")
     # print(os.environ["OPENAI_API_KEY"])
 
-    # summary_template = """
-    #     Given the {information} about a person from I want you to create:
-    #     1. A Short summary
-    #     2. two interesting facts about them
-    # """
-
-    summary_template = """"
-    Write me a song about pizza
+    summary_template = """
+        Given the {information} about a person from I want you to create:
+        1. A Short summary
+        2. two interesting facts about them
     """
+
+    # summary_template = """"
+    # Write me a song about pizza
+    # """
 
 
     summary_prompt_template = PromptTemplate(input_variables=["infromation"], template=summary_template)
@@ -36,7 +38,9 @@ if __name__ == "__main__":
     llm = ChatOllama(temperature=0, model="llama3.2")
     # llm = ChatOllama(temperature=0, model="mistral")
 
+    linkedin_data = scrape_linkedin_profile(linkedin_profile_url="https://www.linkedin.com/in/eden-marco/", mock=True)
+
     chain = summary_prompt_template | llm | StrOutputParser()
-    res = chain.invoke(input={"information": information})
+    res = chain.invoke(input={"information": linkedin_data})
 
     print(res)
