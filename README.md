@@ -68,3 +68,8 @@ This JSON instance includes a summary of Eden Marco's interests and a list of in
 ollama pull ollama3.1:8b
 
 use modulus/1-start-here branch
+
+
+Tavily api
+----
+https://app.tavily.com/home

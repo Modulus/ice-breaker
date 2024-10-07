@@ -20,8 +20,3 @@ def parse_json(json_str: str) -> Summary:
     return parsed_json
 
 summary_parser = PydanticOutputParser(pydantic_object=Summary)
-# TODO: Parse this
-
-# parse = '{"properties": {"summary": {"description": "A short summary of Eden Marco\'s profile", "title": "Summary", "type": "string"}, "facts": {"description": "Interesting facts about Eden Marco", "items": {"type": "string"}, "title": "Facts", "type": "array"}}, "required": ["summary", "facts"]}'
-
-# parse_json(parse)
