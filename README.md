@@ -5,7 +5,7 @@ pip install pip-system-certs
 
 ## ollama stash
 
-ollama pull llama3.2
+ollama pull llama3.2 <-- This fails
 
 
 
@@ -61,3 +61,6 @@ Here is the JSON instance that conforms to the provided schema:
 
 This JSON instance includes a summary of Eden Marco's interests and a list of interesting facts about them, as requested. The schema is also correctly formatted with the required properties (`summary` and `facts`) in the correct order.
 (ice-breaker) 
+
+
+## Working better with ollama3.1:8b
