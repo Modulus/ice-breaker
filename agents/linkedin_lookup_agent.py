@@ -27,12 +27,13 @@ from langchain.agents import (
 
 from tools.tools import get_profile_url_tavily
 from langchain import hub
-
+from model import MODEL
 
 
 def lookup(name: str):
 
-    llm = ChatOllama(temperature=0, model="llama3.2")
+    llm = ChatOllama(temperature=0, model=MODEL)
+    # print(f"Using model {llm.model}")
 
     template = """
     Given the full name of {name_of_person} i want you to get me a link to their Linkedin profile page. Please ignore udemy.com domain. Your answer should be a URL that is in https://linkedin.com something.

@@ -23,5 +23,15 @@ url_list = [
     "https://si.linkedin.com/in/edenmarco",
     "https://github.com/g-emarco",
     "https://www.udemy.com/user/eden-marco/",
-    "https://brokenlink.no/nothing-here"
+    "https://brokenlink.no/nothing-here",
+    # "https://www.vg.no",          # Verdens Gang
+    # "https://www.dagbladet.no",   # Dagbladet
+    # "https://www.aftenposten.no", # Aftenposten
+    # "https://www.nrk.no",         # NRK (Norwegian Broadcasting Corporation)
+    # "https://www.tv2.no",         # TV 2
+    # "https://www.dn.no",          # Dagens Næringsliv
+    # "https://www.nettavisen.no",  # Nettavisen
+    # "https://www.ba.no",          # Bergensavisen
+    # "https://www.bt.no",          # Bergens Tidende
+    # "https://www.adressa.no",     # Adresseavisen
     ]

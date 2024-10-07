@@ -28,12 +28,13 @@ from langchain.agents import (
 from tools.tools import get_profile_url_tavily
 from langchain import hub
 
+from model import MODEL
 
 
 def lookup(name: str):
 
-    llm = ChatOllama(temperature=0, model="llama3.2")
-    # llm = ChatOllama(temperature=0, model="mixtral")
+    llm = ChatOllama(temperature=0, model=MODEL)
+    # print(f"Using model {llm.model}")
 
     template = """
     Given the full name of {name_of_person} i want you to get me a link to their twitter profile page, and textract from it their username. In Your Final Answer only the persons username should be present.

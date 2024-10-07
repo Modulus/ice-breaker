@@ -13,6 +13,8 @@ from agents.twitter_lookup_agent import lookup as twitter_lookup_agent
 from third_parties.twitter import scrape_user_tweets
 from output_parsers import summary_parser, Summary
 
+from model import MODEL
+
 def ice_break_with(name: str) -> Summary:
     linkedin_username = linkedin_lookup_agent(name=name)
     linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_username,mock=True)
@@ -41,7 +43,7 @@ def ice_break_with(name: str) -> Summary:
     # llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
     # For some reason this fails with llama3.2, meaning the summary_parser, no clue why
     # llm = ChatOllama(temperature=0, model="llama3.2")
-    llm = ChatOllama(temperature=0, model="llama3.1:8b")
+    llm = ChatOllama(temperature=0, model=MODEL)
      
     # llm = ChatOllama(temperature=0, model="mistral")
     print(f"Using model {llm.model}")
